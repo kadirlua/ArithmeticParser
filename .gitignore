@@ -32,3 +32,5 @@
 *.app
 /.vs
 /out/build/x64-Debug
+/ArithmeticParser/x64/Debug
+/x64/Debug
