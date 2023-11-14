@@ -29,14 +29,14 @@ using namespace Parser;
 int EvulateExpression(std::string strExpression)
 {
 	ArithmeticParserInt p{ strExpression };
-	return p.parseAndEvulate();
+	return p.parseAndEvaluate();
 }
 
 TEST(SimpleTestCase, ArithmeticParserTest) {
 	ArithmeticParserInt parser1;
 	parser1.setExpression("(4 + 5 * (7 - 3)) - 2");
-	EXPECT_EQ(parser1.parseAndEvulate(), 22);
-	EXPECT_EQ(ArithmeticParserInt{ "4+5+7/2" }.parseAndEvulate(), 12);
+	EXPECT_EQ(parser1.parseAndEvaluate(), 22);
+	EXPECT_EQ(ArithmeticParserInt{ "4+5+7/2" }.parseAndEvaluate(), 12);
 	EXPECT_THROW(EvulateExpression("10 + 1"), ParserException);
 	EXPECT_THROW(EvulateExpression("-10"), ParserException);
 }
