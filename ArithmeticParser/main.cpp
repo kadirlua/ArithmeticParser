@@ -42,8 +42,8 @@ int main()
     for (int i = 0; i < MAX_ITER; i++)
     {
         try {
-            Parser::ArithmeticParserInt p1{ "5 + 4 * 3 / 2" };
-            (void)p1.parseAndEvaluate();
+            Parser::ArithmeticParserInt parser{ "5 + 4 * 3 / 2" };
+            (void)parser.parseAndEvaluate();
         }
         catch (...)
         {
