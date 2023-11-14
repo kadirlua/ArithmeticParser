@@ -29,7 +29,7 @@ int main()
     TEST_PARSER("+5");
     TEST_PARSER("*2");
     TEST_PARSER("5 /2 + 4 / 0");
-    TEST_PARSER("     ");   //nothing to parse
+	TEST_PARSER("     ");   //nothing to parse
 
 #if BENCHMARK_TEST
 
@@ -39,7 +39,7 @@ int main()
     {
         try {
             Parser::ArithmeticParserInt p1{ "5 + 4 * 3 / 2" };
-            (void)p1.parseAndEvulate();
+            (void)p1.parseAndEvaluate();
         }
         catch (...)
         {

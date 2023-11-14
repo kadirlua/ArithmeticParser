@@ -71,7 +71,7 @@ namespace Parser
 
         // parse the given expression and evaluate the result.
         // this function throws an exception if an error occurs.
-        NODISCARD T parseAndEvulate();
+        NODISCARD T parseAndEvaluate();
 
         // setter and getter member functions
 		void setExpression(std::string) noexcept;
@@ -99,7 +99,7 @@ namespace Parser
     }
 
     template<typename T>
-    T ArithmeticParser<T>::parseAndEvulate()
+    T ArithmeticParser<T>::parseAndEvaluate()
     {
         // at first, we should trim the expression as well.
         m_strEpxr.erase(std::remove_if(m_strEpxr.begin(), m_strEpxr.end(),
