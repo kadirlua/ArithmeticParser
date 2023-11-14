@@ -117,7 +117,7 @@ namespace Parser
         // iterate each character into for loop
         for (auto iter = m_strEpxr.cbegin(); iter != m_strEpxr.cend(); iter++) 
         {
-            const auto& ch = *iter;
+            const auto ch = *iter;
 
             switch (ch)
             {
@@ -136,7 +136,7 @@ namespace Parser
                     T&& val1 = std::move(m_Values.top());
                     m_Values.pop();
 
-                    const auto& op = m_Ops.top();
+                    const auto op = m_Ops.top();
                     m_Values.push(callOperator(val1, val2, op));
                     m_Ops.pop();
                 }
@@ -184,7 +184,7 @@ namespace Parser
                     while (!m_Ops.empty() && operatorPriority(m_Ops.top())
                         >= operatorPriority(ch)) {
 
-                        const auto& op = m_Ops.top();
+                        const auto op = m_Ops.top();
 
                         T&& val2 = std::move(m_Values.top());
                         m_Values.pop();
@@ -231,7 +231,7 @@ namespace Parser
         while (!m_Ops.empty()) {
             
             // get the operator and check it
-            const auto& op = m_Ops.top();
+            const auto op = m_Ops.top();
 
             // if there is still a left parenthesis at the top of the stack
             if (op == BRACE_LEFT) {
