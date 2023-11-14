@@ -10,7 +10,7 @@
 
 #define TEST_PARSER(str)                                                        \
 try {                                                                           \
-     std::cout << Parser::ArithmeticParserInt{str}.parseAndEvulate() << "\n"; \
+     std::cout << Parser::ArithmeticParserInt{str}.parseAndEvaluate() << "\n"; \
 }                                                                               \
 catch (const Parser::ParserException& ex) {                                     \
      std::cout << "Exception thrown!: " << ex.getErrorMsg() << "\n";            \

@@ -83,11 +83,11 @@ namespace Parser
 		}
 	protected:
         // operator priorities
-        int operatorPriority(const char&) noexcept;
+        int operatorPriority(char) noexcept;
         // to evaluate result from operands with an operator
-        T callOperator(const T&, const T&, const char&);
+        T callOperator(const T&, const T&, char);
         //Check an operator is valid or not
-		NODISCARD bool isValidOperator(const char& op) const noexcept;
+		NODISCARD bool isValidOperator(char op) const noexcept;
 	private:
 		std::stack<char> m_Ops;	// store operators into stack
 		std::stack<T> m_Values;	// store values into stack
@@ -276,7 +276,7 @@ namespace Parser
     }
 
     template<typename T>
-    int ArithmeticParser<T>::operatorPriority(const char& op) noexcept
+    int ArithmeticParser<T>::operatorPriority(const char op) noexcept
     {
         switch (op) {
         case OP_INC:
@@ -291,7 +291,7 @@ namespace Parser
     }
 
     template<typename T>
-    T ArithmeticParser<T>::callOperator(const T& val1, const T& val2, const char& op)
+    T ArithmeticParser<T>::callOperator(const T& val1, const T& val2, const char op)
     {
         switch (op) {
         case OP_INC:
@@ -309,7 +309,7 @@ namespace Parser
     }
 
     template<typename T>
-    bool ArithmeticParser<T>::isValidOperator(const char& op) const noexcept {
+    bool ArithmeticParser<T>::isValidOperator(const char op) const noexcept {
         switch (op) {
         case OP_INC:
         case OP_MIN:
