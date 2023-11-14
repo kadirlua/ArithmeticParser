@@ -62,7 +62,7 @@ namespace Parser
         INLINE static constexpr auto const OP_DIV = '/';
 
 	public:
-        explicit ArithmeticParser() noexcept{};	// default constructor
+        explicit ArithmeticParser() noexcept = default;	// default constructor
 		explicit ArithmeticParser(std::string) noexcept;
 		virtual ~ArithmeticParser() = default;	// destructor
 		// non-copyable class
