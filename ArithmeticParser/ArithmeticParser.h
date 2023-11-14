@@ -5,8 +5,8 @@
 //  (I have tested on Windows and Linux)
 //  If you have any opinion or question, please do not hesitate to ask me :)
 
-#ifndef _ARITHMETIC_PARSER_
-#define _ARITHMETIC_PARSER_
+#ifndef ARITHMETIC_PARSER
+#define ARITHMETIC_PARSER
 
 #include <string>
 #include <stack>
