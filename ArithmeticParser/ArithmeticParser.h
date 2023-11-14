@@ -85,7 +85,7 @@ namespace Parser
         // to evaluate result from operands with an operator
         T callOperator(const T&, const T&, const char&);
         //Check an operator is valid or not
-        bool isValidOperator(const char& op) const noexcept;
+		NODISCARD bool isValidOperator(const char& op) const noexcept;
 	private:
 		std::stack<char> m_Ops;	// store operators into stack
 		std::stack<T> m_Values;	// store values into stack
