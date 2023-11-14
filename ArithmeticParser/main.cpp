@@ -39,14 +39,12 @@ int main()
 
     auto sysClockNow = std::chrono::high_resolution_clock::now();
     
-    for (int i = 0; i < MAX_ITER; i++)
-    {
+    for (int i = 0; i < MAX_ITER; i++) {
         try {
             Parser::ArithmeticParserInt parser{ "5 + 4 * 3 / 2" };
             (void)parser.parseAndEvaluate();
         }
-        catch (...)
-        {
+        catch (...) {
             // do not print anything, just a dummy test :)
         }
     }
