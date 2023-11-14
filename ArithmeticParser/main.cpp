@@ -8,6 +8,10 @@
 
 #define BENCHMARK_TEST  1
 
+namespace {
+	constexpr auto const MAX_ITER = 100000;
+}
+
 #define TEST_PARSER(str)                                                        \
 try {                                                                           \
      std::cout << Parser::ArithmeticParserInt{str}.parseAndEvaluate() << "\n"; \
@@ -35,7 +39,7 @@ int main()
 
     auto sysClockNow = std::chrono::high_resolution_clock::now();
     
-    for (int i = 0; i < 100000; i++)
+    for (int i = 0; i < MAX_ITER; i++)
     {
         try {
             Parser::ArithmeticParserInt p1{ "5 + 4 * 3 / 2" };
