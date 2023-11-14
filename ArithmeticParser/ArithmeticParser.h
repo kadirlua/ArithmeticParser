@@ -43,7 +43,8 @@ namespace Parser
         *	returns: Error message.
         *	exception: This function never throws an exception.
         */
-        NODISCARD virtual const std::string& getErrorMsg() const noexcept {
+        NODISCARD virtual const std::string& getErrorMsg() const noexcept
+		{
             return m_error_msg;
         }
 
@@ -76,7 +77,8 @@ namespace Parser
         // setter and getter member functions
 		void setExpression(std::string) noexcept;
 
-        NODISCARD std::string getExpression() const noexcept {
+        NODISCARD std::string getExpression() const noexcept
+		{
 			return m_strEpxr;
 		}
 	protected:
@@ -108,8 +110,9 @@ namespace Parser
         ), m_strEpxr.end());
 
         // check if the expression is empty
-        if (m_strEpxr.length() == 0)
-            throw ParserException{ "Nothing to do parse!" };
+        if (m_strEpxr.length() == 0) {
+			throw ParserException{ "Nothing to do parse!" };
+		}
 
         // iterate each character into for loop
         for (auto iter = m_strEpxr.cbegin(); iter != m_strEpxr.cend(); iter++) 
@@ -126,8 +129,7 @@ namespace Parser
             case BRACE_RIGHT:
                 // Closing brace encountered, solve
                 // entire brace.
-                while (!m_Ops.empty() && m_Ops.top() != BRACE_LEFT)
-                {
+                while (!m_Ops.empty() && m_Ops.top() != BRACE_LEFT) {
                     T&& val2 = std::move(m_Values.top());
                     m_Values.pop();
 
@@ -166,8 +168,7 @@ namespace Parser
 
                     // If there may be more digit, throw an exception
                     for (auto next_iter = iter + 1; next_iter != m_strEpxr.cend() &&
-                        std::isdigit(static_cast<unsigned char>(*next_iter)); next_iter++)
-                    {
+                        std::isdigit(static_cast<unsigned char>(*next_iter)); next_iter++) {
                         throw ParserException("Literal is too large!");
                     }
 
@@ -188,10 +189,8 @@ namespace Parser
                         T&& val2 = std::move(m_Values.top());
                         m_Values.pop();
 
-                        if (m_Values.empty())
-                        {
-                            switch (op)
-                            {
+                        if (m_Values.empty()) {
+                            switch (op) {
                             case OP_INC:
                                 m_Values.push(val2);
                                 break;
@@ -204,8 +203,7 @@ namespace Parser
                                 break;
                             }
                         }
-                        else
-                        {
+                        else {
                             T&& val1 = std::move(m_Values.top());
                             m_Values.pop();
 
@@ -216,10 +214,12 @@ namespace Parser
                     }
 
                     // Push current token to 'ops'.
-                    if (isValidOperator(ch))
-                        m_Ops.push(ch);
-                    else
-                        throw ParserException{ "Invalid token." };
+                    if (isValidOperator(ch)) {
+						m_Ops.push(ch);
+					}
+                    else {
+						throw ParserException{ "Invalid token." };
+					}
                 }
                 break;
             }
@@ -234,16 +234,15 @@ namespace Parser
             const auto& op = m_Ops.top();
 
             // if there is still a left parenthesis at the top of the stack
-            if (op == BRACE_LEFT)
-                throw ParserException{"unbalanced parentheses!"};
+            if (op == BRACE_LEFT) {
+				throw ParserException{"unbalanced parentheses!"};
+			}
 
             T&& val2 = std::move(m_Values.top());
             m_Values.pop();
 
-            if (m_Values.empty())
-            {
-                switch (op)
-                {
+            if (m_Values.empty()) {
+                switch (op) {
                 case OP_INC:
                     m_Values.push(val2);
                     break;
@@ -256,8 +255,7 @@ namespace Parser
                     break;
                 }
             }
-            else
-            {
+            else {
                 T&& val1 = std::move(m_Values.top());
                 m_Values.pop();
 
@@ -280,8 +278,7 @@ namespace Parser
     template<typename T>
     int ArithmeticParser<T>::operatorPriority(const char& op) noexcept
     {
-        switch (op)
-        {
+        switch (op) {
         case OP_INC:
         case OP_MIN:
             return 1;
