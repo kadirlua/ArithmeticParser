@@ -110,7 +110,7 @@ namespace Parser
         ), m_strEpxr.end());
 
         // check if the expression is empty
-        if (m_strEpxr.length() == 0) {
+        if (m_strEpxr.empty()) {
 			throw ParserException{ "Nothing to do parse!" };
 		}
 
