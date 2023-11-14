@@ -162,13 +162,13 @@ namespace Parser
 
                 // Current token is a number, push
                 // it to stack for numbers.
-                if (std::isdigit(static_cast<unsigned char>(ch))) {
+                if (std::isdigit(static_cast<unsigned char>(ch)) != 0) {
                     // get the current value of digit number
                     T val = ch - '0';
 
                     // If there may be more digit, throw an exception
                     for (auto next_iter = iter + 1; next_iter != m_strEpxr.cend() &&
-                        std::isdigit(static_cast<unsigned char>(*next_iter)); next_iter++) {
+                        std::isdigit(static_cast<unsigned char>(*next_iter)) != 0; next_iter++) {
                         throw ParserException("Literal is too large!");
                     }
 
