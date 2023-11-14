@@ -301,8 +301,9 @@ namespace Parser
         case OP_MUL:
             return val1 * val2;
         case OP_DIV:
-            if (val2 == 0)
+            if (val2 == 0) {
                 throw ParserException{ "cannot divide by zero" };
+            }
             return val1 / val2;
         }
         return 0;
