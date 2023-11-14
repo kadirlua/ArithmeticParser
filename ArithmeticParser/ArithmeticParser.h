@@ -140,10 +140,10 @@ namespace Parser
                 }
 
                 // if we find a right parenthesis when the stack is empty
-                if (m_Ops.empty())
-                    throw ParserException{ "unbalanced parentheses!" };
-                else
-                    m_Ops.pop();    // pop opening brace.
+                if (m_Ops.empty()) {
+					throw ParserException{ "unbalanced parentheses!" };
+				}
+				m_Ops.pop();    // pop opening brace.
                 break;
 
             default:
