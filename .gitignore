@@ -1,3 +1,11 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
 # Prerequisites
 *.d
 
@@ -30,7 +38,33 @@
 *.exe
 *.out
 *.app
-/.vs
-/out/build/x64-Debug
-/ArithmeticParser/x64/Debug
-/x64/Debug
+
+# for CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+cmake_uninstall.cmake
+.ninja_*
+*.ninja
+
+# for CLion
+.idea
+cmake-build-*
+
+# for Visual Studio Code
+.vscode/
+build
+
+# for Visual C++
+.vs
+out
+Debug
+Release
+x64
+ArithmeticParser/Debug
+ArithmeticParser/Release
+ArithmeticParser/x64
+*.user
+*.ncb
+*.suo
+*.sdf
