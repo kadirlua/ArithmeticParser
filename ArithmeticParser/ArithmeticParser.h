@@ -1,7 +1,7 @@
-//  Author: Kadir ALTINDAG
+//  Author: Kadir Altindag
 //  Simple math parser in modern C++.
-//  This library parse and evulate given math expressions such as (a + b - c * d).
-//  It's a cross platform library which should compile on any operating system without any problem
+//  This library parse and evaluate given math expressions such as (a + b - c * d).
+//  It's a cross-platform library which should compile on any operating system without any problem
 //  (I have tested on Windows and Linux)
 //  If you have any opinion or question, please do not hesitate to ask me :)
 
@@ -69,8 +69,8 @@ namespace Parser
 		ArithmeticParser(const ArithmeticParser&) = delete;
 		ArithmeticParser& operator=(const ArithmeticParser&) = delete;
 
-        // parse the given expression and evulate the result. 
-        // this function throws an exception if an error occours.
+        // parse the given expression and evaluate the result.
+        // this function throws an exception if an error occurs.
         NODISCARD T parseAndEvulate();
 
         // setter and getter member functions
@@ -82,7 +82,7 @@ namespace Parser
 	protected:
         // operator priorities
         int operatorPriority(const char&) noexcept;
-        // to evulate result from operands with an operator
+        // to evaluate result from operands with an operator
         T callOperator(const T&, const T&, const char&);
         //Check an operator is valid or not
         bool isValidOperator(const char& op) const noexcept;
