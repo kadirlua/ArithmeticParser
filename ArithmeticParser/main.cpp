@@ -50,7 +50,7 @@ int main()
     auto sysClockEnd = std::chrono::high_resolution_clock::now();
 
     /* Getting number of milliseconds as a double. */
-    std::chrono::duration<double, std::milli> ms_double = sysClockEnd - sysClockNow;
+    const std::chrono::duration<double, std::milli> ms_double = sysClockEnd - sysClockNow;
 
     std::cout << "Benchmark test result: " << ms_double.count() << " ms\n";
 #endif
