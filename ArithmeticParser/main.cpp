@@ -59,7 +59,7 @@ int main()
 
 #if BENCHMARK_TEST
 
-    auto sysClockNow = std::chrono::high_resolution_clock::now();
+    auto sysClockNow = std::chrono::steady_clock::now();
     
     for (int i = 0; i < MAX_ITER; i++) {
         try {
@@ -71,7 +71,7 @@ int main()
         }
     }
 
-    auto sysClockEnd = std::chrono::high_resolution_clock::now();
+    auto sysClockEnd = std::chrono::steady_clock::now();
 
     /* Getting number of milliseconds as a double. */
     const std::chrono::duration<double, std::milli> ms_double = sysClockEnd - sysClockNow;
