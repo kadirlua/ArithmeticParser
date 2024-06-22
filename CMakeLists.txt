@@ -21,5 +21,5 @@ include_directories(${PROJECT_INCLUDE_DIR})
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} )
 
 if(MSVC)
-    target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
+    target_compile_options(${PROJECT_NAME} PRIVATE "/Zc:__cplusplus")
 endif()
