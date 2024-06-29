@@ -15,10 +15,8 @@ set(PROJECT_HEADERS
         ${PROJECT_INCLUDE_DIR}/ArithmeticParser.h
     )
 
-
-include_directories(${PROJECT_INCLUDE_DIR})
-
 add_executable(${PROJECT_NAME} ${PROJECT_SOURCES} )
+target_include_directories({PROJECT_NAME} PRIVATE ${PROJECT_INCLUDE_DIR})
 
 if(MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE "/Zc:__cplusplus")
